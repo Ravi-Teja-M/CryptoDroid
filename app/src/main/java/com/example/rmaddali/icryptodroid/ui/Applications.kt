@@ -16,6 +16,8 @@ open class Applications : Application() {
             {
 
                 var retrofit  = Retrofit.Builder()
+                        //
+                        // .baseUrl("https://api.nexchange.io/en/api/")
                         .baseUrl("https://pro-api.coinmarketcap.com/")
                         .addConverterFactory(GsonConverterFactory.create(Gson()))
                         .build()

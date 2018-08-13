@@ -1,7 +1,6 @@
 package com.example.rmaddali.icryptodroid.ui.model
 
-
-public   class CryptoInfoModel(
+data class CryptoInfoModel(
     val status: Status,
     val data: List<Data>
 )
