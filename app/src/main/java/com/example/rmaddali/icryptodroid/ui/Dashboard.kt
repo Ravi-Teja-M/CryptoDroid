@@ -3,7 +3,9 @@ package com.example.rmaddali.icryptodroid.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
- import com.google.android.material.bottomnavigation.BottomNavigationView
+import android.view.View
+import android.widget.ProgressBar
+import com.google.android.material.bottomnavigation.BottomNavigationView
  import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
  import com.example.rmaddali.icryptodroid.R
@@ -14,6 +16,7 @@ class Dashboard : AppCompatActivity() {
 
     lateinit var recyclerView : androidx.recyclerview.widget.RecyclerView
     lateinit var mCoverFlowAdapter: CoverFlowAdapter
+    lateinit var mProgressBar: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,11 +24,18 @@ class Dashboard : AppCompatActivity() {
         initViews()
         initBottomBar()
 
-        getCryptoCoins {
-            cryptoInfo: CryptoInfoModel ->
+        mProgressBar.visibility = View.VISIBLE
+        getCryptoCoins(fun(cryptoInfo : CryptoInfoModel){ //Success callback
 
-            updateListData(cryptoInfo)
-        }
+           updateListData(cryptoInfo)
+            recyclerView.visibility= View.VISIBLE
+           mProgressBar.visibility = View.GONE
+
+
+        },  fun() { //Failure Callback
+
+            mProgressBar.visibility = View.GONE
+       })
     }
 
     private fun updateListData(cryptoInfo: CryptoInfoModel)  {
@@ -38,6 +48,7 @@ class Dashboard : AppCompatActivity() {
 
     private fun initViews() {
         recyclerView = findViewById(R.id.cover_recycler)
+        mProgressBar = findViewById(R.id.progressBar)
         mCoverFlowAdapter = CoverFlowAdapter(this)
         var linearLayoutManager = androidx.recyclerview.widget.LinearLayoutManager(this,androidx.recyclerview.widget.LinearLayoutManager.HORIZONTAL,false)
         recyclerView.layoutManager = linearLayoutManager

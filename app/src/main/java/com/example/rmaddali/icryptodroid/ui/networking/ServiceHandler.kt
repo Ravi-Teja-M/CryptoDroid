@@ -10,7 +10,7 @@ import retrofit2.Response
 import kotlin.math.abs
 
 
-fun getCryptoCoins(ab : (cryptoInfo : CryptoInfoModel) -> Unit?){
+fun getCryptoCoins(successCallback : (cryptoInfo : CryptoInfoModel) -> Unit? , failureCallback : ()-> Unit ){
 
     var retrofit = Applications.RetrofitSingleton.initRetrofit()
     var cryptoInfoServiceImpl =  retrofit.create(CryptoInfoServiceImpl::class.java)
@@ -23,11 +23,13 @@ fun getCryptoCoins(ab : (cryptoInfo : CryptoInfoModel) -> Unit?){
 
         override fun onFailure(call: Call<CryptoInfoModel>?, t: Throwable?) {
             Log.v(""," resp failed ")
+
+            failureCallback()
         }
 
         override fun onResponse(call: Call<CryptoInfoModel>?, response: Response<CryptoInfoModel>?) {
             //Log.v(""," resp on resp " + response?.body().toString())
-            ab(response!!.body()!!)
+            successCallback(response!!.body()!!)
             }
 
     })
