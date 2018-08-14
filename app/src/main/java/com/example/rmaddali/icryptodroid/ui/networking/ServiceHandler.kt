@@ -7,7 +7,7 @@ import com.example.rmaddali.icryptodroid.ui.networking.serviceimpl.CryptoInfoSer
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import kotlin.math.abs
+
 
 
 fun getCryptoCoins(successCallback : (cryptoInfo : CryptoInfoModel) -> Unit? , failureCallback : ()-> Unit ){
@@ -19,6 +19,7 @@ fun getCryptoCoins(successCallback : (cryptoInfo : CryptoInfoModel) -> Unit? , f
     queryMap.put("CMC_PRO_API_KEY", Applications.RetrofitSingleton.CMC_PRO_API_KEY)
 
     var callingObject  :Call<CryptoInfoModel> = cryptoInfoServiceImpl.getCryptoInfo(queryMap)
+
     callingObject.enqueue(object : Callback<CryptoInfoModel> {
 
         override fun onFailure(call: Call<CryptoInfoModel>?, t: Throwable?) {
@@ -28,15 +29,8 @@ fun getCryptoCoins(successCallback : (cryptoInfo : CryptoInfoModel) -> Unit? , f
         }
 
         override fun onResponse(call: Call<CryptoInfoModel>?, response: Response<CryptoInfoModel>?) {
-            //Log.v(""," resp on resp " + response?.body().toString())
             successCallback(response!!.body()!!)
             }
-
     })
 }
 
-
-
-fun  abs(hello : (h2: Int) ->String  ,  vali : String ){
-
-}

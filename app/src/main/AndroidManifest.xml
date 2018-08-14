@@ -22,7 +22,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.Dashboard"></activity>
+        <activity android:name=".ui.Dashboard" android:theme="@style/FullScreenTheme"></activity>
     </application>
 
 </manifest>

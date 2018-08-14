@@ -13,6 +13,7 @@ public interface CryptoInfoServiceImpl
 {
 
     @GET("v1/cryptocurrency/map")
+    
      Call<CryptoInfoModel> getCryptoInfo(@QueryMap Map<String, String> map);
 
 

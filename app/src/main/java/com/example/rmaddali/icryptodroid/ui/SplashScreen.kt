@@ -22,10 +22,12 @@ class SplashScreen : AppCompatActivity() , Handler.Callback{
 
               launchListActivity()
 
-          }, 2000)
+          }, 1000)
     }
 
     fun launchListActivity(){
+
+
 
         var intent = Intent(this, Dashboard::class.java)
         startActivity(intent)
