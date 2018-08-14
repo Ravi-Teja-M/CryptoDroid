@@ -2,6 +2,7 @@ package com.example.rmaddali.icryptodroid.ui
 
 import android.app.Application
 import com.google.gson.Gson
+import com.squareup.picasso.Picasso
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -25,6 +26,10 @@ open class Applications : Application() {
                 return retrofit
             }
         }
+
+
+
+
     }
 
 
