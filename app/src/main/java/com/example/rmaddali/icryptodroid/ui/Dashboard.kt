@@ -1,17 +1,18 @@
 
 package com.example.rmaddali.icryptodroid.ui
 
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
- import android.support.design.widget.BottomNavigationView
- import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+ import com.google.android.material.bottomnavigation.BottomNavigationView
+ import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
  import com.example.rmaddali.icryptodroid.R
+import com.example.rmaddali.icryptodroid.ui.model.CryptoInfoModel
 import com.example.rmaddali.icryptodroid.ui.networking.getCryptoCoins
 
 class Dashboard : AppCompatActivity() {
 
-    lateinit var recyclerView : RecyclerView
+    lateinit var recyclerView : androidx.recyclerview.widget.RecyclerView
     lateinit var mCoverFlowAdapter: CoverFlowAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,14 +21,25 @@ class Dashboard : AppCompatActivity() {
         initViews()
         initBottomBar()
 
+        getCryptoCoins {
+            cryptoInfo: CryptoInfoModel ->
 
-        var serviceHandler =  getCryptoCoins(context = applicationContext as Applications)
+            updateListData(cryptoInfo)
+        }
     }
+
+    private fun updateListData(cryptoInfo: CryptoInfoModel)  {
+        runOnUiThread{
+            mCoverFlowAdapter.updateData(cryptoInfo)
+            mCoverFlowAdapter.notifyDataSetChanged()
+        }
+    }
+
 
     private fun initViews() {
         recyclerView = findViewById(R.id.cover_recycler)
         mCoverFlowAdapter = CoverFlowAdapter(this)
-        var linearLayoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
+        var linearLayoutManager = androidx.recyclerview.widget.LinearLayoutManager(this,androidx.recyclerview.widget.LinearLayoutManager.HORIZONTAL,false)
         recyclerView.layoutManager = linearLayoutManager
         recyclerView.adapter = mCoverFlowAdapter
     }
