@@ -40,6 +40,17 @@
         app:layout_constraintTop_toTopOf="@+id/cardView"
         app:layout_constraintVertical_bias="0.0">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:drawablePadding="2dp"
+            android:drawableStart="@drawable/ic_compare_arrows_black_24dp"
+             android:fontFamily="@font/press_start_2p"
+            android:text="Convertion\n(calc)"
+            android:textSize="10sp"
+            android:textStyle="bold" />
 
     </androidx.cardview.widget.CardView>
 
@@ -47,11 +58,26 @@
         android:id="@+id/cardView"
         android:layout_width="177dp"
         android:layout_height="69dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="112dp"
         app:cardCornerRadius="10dp"
         app:cardElevation="11dp"
         app:layout_constraintEnd_toEndOf="@+id/cover_recycler"
-        app:layout_constraintTop_toBottomOf="@+id/cover_recycler" />
+        app:layout_constraintTop_toBottomOf="@+id/cover_recycler" >
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+             android:gravity="center"
+            android:layout_gravity="center"
+            android:drawablePadding="4dp"
+            android:drawableStart="@drawable/ic_show_chart_black_24dp"
+            android:fontFamily="@font/press_start_2p"
+            android:text="Global Chart"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            />
+    </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView3"
@@ -65,7 +91,23 @@
         app:layout_constraintEnd_toStartOf="@+id/cardView4"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/cardView2"
-        app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+        app:layout_constraintTop_toBottomOf="@+id/cardView2" >
+
+        <TextView
+            android:id="@+id/hot_news"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:drawablePadding="4dp"
+            android:drawableStart="@drawable/ic_whatshot_black_24dp"
+            android:fontFamily="@font/press_start_2p"
+            android:text="News"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            />
+
+    </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView4"
@@ -99,8 +141,8 @@
         android:id="@+id/view_more"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="56dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="40dp"
         android:text="View more >>"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
