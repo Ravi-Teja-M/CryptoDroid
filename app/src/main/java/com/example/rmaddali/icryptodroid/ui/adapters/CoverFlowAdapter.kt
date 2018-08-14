@@ -1,16 +1,15 @@
-package com.example.rmaddali.icryptodroid.ui
+package com.example.rmaddali.icryptodroid.ui.adapters
 
 import android.content.Context
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.rmaddali.icryptodroid.R
-import com.example.rmaddali.icryptodroid.ui.model.CryptoInfoModel
-import com.example.rmaddali.icryptodroid.ui.model.Data
-import com.example.rmaddali.icryptodroid.ui.utils.UrlUtil
+import com.example.rmaddali.icryptodroid.model.CryptoInfoModel
+import com.example.rmaddali.icryptodroid.model.Data
+import com.example.rmaddali.icryptodroid.utils.UrlUtil
 import com.squareup.picasso.Picasso
 
 class CoverFlowAdapter(context : Context) : androidx.recyclerview.widget.RecyclerView.Adapter<ViewHolders>()  {

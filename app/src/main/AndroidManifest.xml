@@ -14,7 +14,7 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity
-            android:name=".ui.SplashScreen"
+            android:name=".ui.activities.SplashScreen"
             android:theme="@style/FullScreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,7 +22,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.Dashboard" android:theme="@style/FullScreenTheme"></activity>
+        <activity android:name=".ui.activities.Dashboard" android:theme="@style/FullScreenTheme"></activity>
     </application>
 
 </manifest>

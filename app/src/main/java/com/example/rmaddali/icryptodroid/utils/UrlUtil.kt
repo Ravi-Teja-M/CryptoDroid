@@ -1,4 +1,4 @@
-package com.example.rmaddali.icryptodroid.ui.utils
+package com.example.rmaddali.icryptodroid.utils
 
 
 object  UrlUtil{

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
 
     android:layout_height="match_parent"
-    tools:context=".ui.Dashboard">
+    tools:context=".ui.activities.Dashboard">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/cover_recycler"

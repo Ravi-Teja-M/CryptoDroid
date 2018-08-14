@@ -1,4 +1,4 @@
-package com.example.rmaddali.icryptodroid.ui.model
+package com.example.rmaddali.icryptodroid.model
 
 data class CryptoInfoModel(
     val status: Status,

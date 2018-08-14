@@ -1,5 +1,5 @@
 
-package com.example.rmaddali.icryptodroid.ui
+package com.example.rmaddali.icryptodroid.ui.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,11 +7,10 @@ import android.view.View
 import android.widget.ProgressBar
 import android.widget.TextView
 import com.google.android.material.bottomnavigation.BottomNavigationView
- import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
- import com.example.rmaddali.icryptodroid.R
-import com.example.rmaddali.icryptodroid.ui.model.CryptoInfoModel
-import com.example.rmaddali.icryptodroid.ui.networking.getCryptoCoins
+import com.example.rmaddali.icryptodroid.R
+import com.example.rmaddali.icryptodroid.model.CryptoInfoModel
+import com.example.rmaddali.icryptodroid.networking.getCryptoCoins
+import com.example.rmaddali.icryptodroid.ui.adapters.CoverFlowAdapter
 
 class Dashboard : AppCompatActivity() {
 

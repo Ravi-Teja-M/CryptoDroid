@@ -1,4 +1,4 @@
-package com.example.rmaddali.icryptodroid.ui
+package com.example.rmaddali.icryptodroid.ui.activities
 
 import android.content.Intent
 import android.os.Bundle

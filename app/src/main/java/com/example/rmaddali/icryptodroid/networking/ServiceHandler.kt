@@ -1,9 +1,9 @@
-package com.example.rmaddali.icryptodroid.ui.networking
+package com.example.rmaddali.icryptodroid.networking
 
 import android.util.Log
 import com.example.rmaddali.icryptodroid.ui.Applications
-import com.example.rmaddali.icryptodroid.ui.model.CryptoInfoModel
-import com.example.rmaddali.icryptodroid.ui.networking.serviceimpl.CryptoInfoServiceImpl
+import com.example.rmaddali.icryptodroid.model.CryptoInfoModel
+import com.example.rmaddali.icryptodroid.networking.serviceimpl.CryptoInfoServiceImpl
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
