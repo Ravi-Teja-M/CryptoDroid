@@ -23,6 +23,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.activities.Dashboard" android:theme="@style/FullScreenTheme"></activity>
+
+        <activity android:name=".ui.activities.CoinDetailsActivity" android:theme="@style/FullScreenTheme"></activity>
+
     </application>
 
 </manifest>

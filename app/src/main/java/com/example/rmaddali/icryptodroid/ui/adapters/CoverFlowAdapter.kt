@@ -12,13 +12,14 @@ import com.example.rmaddali.icryptodroid.model.Data
 import com.example.rmaddali.icryptodroid.utils.UrlUtil
 import com.squareup.picasso.Picasso
 
-class CoverFlowAdapter(context : Context) : androidx.recyclerview.widget.RecyclerView.Adapter<ViewHolders>()  {
+class CoverFlowAdapter : androidx.recyclerview.widget.RecyclerView.Adapter<ViewHolders>()  {
 
-    var listItems: List<Data>  = emptyList()
+
+    private var listItems: List<Data>  = emptyList()
+
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolders {
 
       var layout =   LayoutInflater.from(p0.context).inflate(R.layout.coverflow_card_layout , p0, false)
-
       return ViewHolders(layout)
     }
 
@@ -28,18 +29,14 @@ class CoverFlowAdapter(context : Context) : androidx.recyclerview.widget.Recycle
     }
 
     override fun onBindViewHolder(holder: ViewHolders, index: Int) {
-
         holder.title.text =  listItems.get(index).symbol
         holder.description.text =  listItems.get(index).name
-
         holder.rank.text  = "# ${listItems.get(index).id}"
         holder.currentValue.text = listItems.get(index).first_historical_data
-
         Picasso.get().load(   UrlUtil.getCoinLogoUrlFromId( (listItems?.get(index).id))  ).into(holder.coinLogo)
       }
 
     fun updateData(cryptoInfo: CryptoInfoModel) {
-
         listItems = cryptoInfo?.data
     }
 }
@@ -51,21 +48,25 @@ class CoverFlowAdapter(context : Context) : androidx.recyclerview.widget.Recycle
       lateinit  var currentValue: TextView
       lateinit  var rank:TextView
       lateinit  var coinLogo:ImageView
-
       var parent :View = itemView
 
       init {
           initViews()
-      }
+        }
 
       private fun initViews() {
-
           title = parent.findViewById(R.id.coin_code_txt)
           description = parent.findViewById(R.id.coin_name_txt)
           currentValue = parent.findViewById(R.id.coin_status_xtras)
           rank = parent.findViewById(R.id.rank)
           coinLogo = parent.findViewById(R.id.coin_logo)
+          parent.setOnClickListener{
+              adapterPosition
+          }
       }
-
-
   }
+
+
+ interface  OnListItemClicked{
+     fun onItemClicked(viewGroup:ViewGroup , position: Int )
+ }
