@@ -12,8 +12,10 @@ import com.example.rmaddali.icryptodroid.model.Data
 import com.example.rmaddali.icryptodroid.utils.UrlUtil
 import com.squareup.picasso.Picasso
 
-class CoverFlowAdapter : androidx.recyclerview.widget.RecyclerView.Adapter<ViewHolders>()  {
+class CoverFlowAdapter(context: Context) : androidx.recyclerview.widget.RecyclerView.Adapter<ViewHolders>()  {
 
+
+   var callback   = context
 
     private var listItems: List<Data>  = emptyList()
 
@@ -61,12 +63,14 @@ class CoverFlowAdapter : androidx.recyclerview.widget.RecyclerView.Adapter<ViewH
           rank = parent.findViewById(R.id.rank)
           coinLogo = parent.findViewById(R.id.coin_logo)
           parent.setOnClickListener{
-              adapterPosition
+
+              (parent.context as OnListItemClicked).onItemClicked(parent, adapterPosition)
+
           }
       }
   }
 
 
  interface  OnListItemClicked{
-     fun onItemClicked(viewGroup:ViewGroup , position: Int )
+     fun onItemClicked(viewGroup:View , position: Int )
  }

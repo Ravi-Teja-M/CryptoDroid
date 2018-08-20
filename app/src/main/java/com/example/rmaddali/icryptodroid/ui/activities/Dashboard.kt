@@ -1,6 +1,7 @@
 
 package com.example.rmaddali.icryptodroid.ui.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -62,7 +63,7 @@ class Dashboard : AppCompatActivity() , OnListItemClicked {
         mViewMoreLabel.setOnClickListener{
             onViewMoreClicked()
         }
-        mCoverFlowAdapter = CoverFlowAdapter( )
+        mCoverFlowAdapter = CoverFlowAdapter(this )
         var linearLayoutManager = androidx.recyclerview.widget.LinearLayoutManager(this,androidx.recyclerview.widget.LinearLayoutManager.HORIZONTAL,false)
         recyclerView.layoutManager = linearLayoutManager
         recyclerView.adapter = mCoverFlowAdapter
@@ -81,7 +82,10 @@ class Dashboard : AppCompatActivity() , OnListItemClicked {
 
     }
 
-    override fun onItemClicked(viewGroup: ViewGroup, position: Int) {
+    override fun onItemClicked(viewGroup: View, position: Int) {
+
+        var intent = Intent(this, CoinDetailsActivity::class.java)
+        startActivity(intent)
 
      }
 }

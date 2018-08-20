@@ -18,7 +18,7 @@ class CoinDetailsActivity : FragmentActivity() {
         var coinDetailsFragment = CoinDetailsFragment()
         var supportFragment = supportFragmentManager.beginTransaction();
         supportFragment.replace(R.id.container , coinDetailsFragment , "coinDetailFragment")
-        supportFragment.addToBackStack(null)
+        //supportFragment.addToBackStack(null)
         supportFragment.commit()
 
     }
