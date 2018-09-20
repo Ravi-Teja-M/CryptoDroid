@@ -9,13 +9,14 @@ import android.widget.TextView
 import com.example.rmaddali.icryptodroid.R
 import com.example.rmaddali.icryptodroid.model.CryptoInfoModel
 import com.example.rmaddali.icryptodroid.model.Data
+import com.example.rmaddali.icryptodroid.ui.activities.Dashboard
+import com.example.rmaddali.icryptodroid.ui.fragments.CoinListFragment
 import com.example.rmaddali.icryptodroid.utils.UrlUtil
 import com.squareup.picasso.Picasso
 
-class CoverFlowAdapter(context: Context) : androidx.recyclerview.widget.RecyclerView.Adapter<ViewHolders>()  {
+class CoverFlowAdapter(context: Context, instance: CoinListFragment) : androidx.recyclerview.widget.RecyclerView.Adapter<ViewHolders>()  {
 
-
-   var callback   = context
+    var callback   = context
 
     private var listItems: List<Data>  = emptyList()
 
@@ -63,8 +64,7 @@ class CoverFlowAdapter(context: Context) : androidx.recyclerview.widget.Recycler
           rank = parent.findViewById(R.id.rank)
           coinLogo = parent.findViewById(R.id.coin_logo)
           parent.setOnClickListener{
-
-              (parent.context as OnListItemClicked).onItemClicked(parent, adapterPosition)
+              val activityContext = parent!!.context
 
           }
       }

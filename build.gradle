@@ -5,7 +5,9 @@ buildscript {
     repositories {
         google()
         jcenter()
-
+        maven{
+            url "C:\\Users\\rmaddali\\Desktop\\Installer\\3_2_final\\gradle\\m2repository"
+        }
      }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.3.0-alpha07'
@@ -21,6 +23,9 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven{
+            url "C:\\Users\\rmaddali\\Desktop\\Installer\\3_2_final\\gradle\\m2repository"
+        }
 
     }
 }

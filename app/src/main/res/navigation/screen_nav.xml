@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/screen_nav"
+    app:startDestination="@id/splashScreen">
+
+    <fragment
+        android:id="@+id/coinListFragment"
+        android:name="com.example.rmaddali.icryptodroid.ui.fragments.CoinListFragment"
+        android:label="coin_list_fragment"
+        tools:layout="@layout/coin_list_fragment" >
+        <action
+            android:id="@+id/action_coinListFragment_to_coinDetailsFragment"
+            app:destination="@id/coinDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/coinDetailsFragment"
+        tools:layout="@layout/coin_details_fragment"
+        android:name="com.example.rmaddali.icryptodroid.ui.fragments.CoinDetailsFragment"
+        android:label="CoinDetailsFragment" ><action android:id="@+id/action_coinDetailsFragment_pop" app:popUpTo="@id/coinDetailsFragment" app:popUpToInclusive="true"/></fragment>
+    <fragment
+        android:id="@+id/splashScreen"
+        android:name="com.example.rmaddali.icryptodroid.ui.fragments.SplashScreen"
+        android:label="splash_layout"
+        tools:layout="@layout/splash_layout" >
+        <action
+            android:id="@+id/action_splashScreen_to_coinListFragment"
+            app:destination="@id/coinListFragment" /><action android:id="@+id/action_splashScreen_to_coinListFragment2" app:destination="@id/coinListFragment" app:launchSingleTop="true"/>
+    </fragment>
+</navigation>
