@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     tools:context=".ui.fragments.SplashScreen"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark">
+    android:background="@color/colorAccent">
 
     <TextView
         android:id="@+id/app_titlez"
