@@ -24,7 +24,7 @@ fun getCryptoCoins(successCallback : (cryptoInfo : CryptoInfoModel) -> Unit? , f
 
         override fun onFailure(call: Call<CryptoInfoModel>?, t: Throwable?) {
             Log.v(""," resp failed ")
-
+            //module2
             failureCallback()
         }
 
