@@ -39,8 +39,8 @@ class CoverFlowAdapter(context: Context, instance: CoinListFragment) : androidx.
         Picasso.get().load(   UrlUtil.getCoinLogoUrlFromId( (listItems?.get(index).id))  ).into(holder.coinLogo)
       }
 
-    fun updateData(cryptoInfo: CryptoInfoModel) {
-        listItems = cryptoInfo?.data
+    fun updateData(cryptoInfo: List<Data>?) {
+        listItems = cryptoInfo!!
     }
 }
 
