@@ -43,7 +43,6 @@ class ServiceHandlerViewModel(application: Application) : AndroidViewModel(appli
 
                 mCoinList?.value?.let {
                     saveDataToRoom(mCoinList?.value!!)
-
                 }
                 successCallback()
             }
@@ -52,12 +51,25 @@ class ServiceHandlerViewModel(application: Application) : AndroidViewModel(appli
 
     private fun saveDataToRoom(value: List<Data>)   {
 
+        Thread(Runnable{
+            RoomDbManager.getInstance(getApplication()).getCoinDataDao().insertCoinData(value)
+        }).start()
 
-        RoomDbManager.getInstance(getApplication()).getCoinDataDao().insertCoinData(value)
 
 
 
     }
+
+     fun getAllCoinsData( )   {
+         Thread(Runnable{
+           var items = RoomDbManager.getInstance(getApplication()).getCoinDataDao().getAllCoinsList()
+
+            for(item in items){
+                println( item.name)
+            }
+        }).start()
+    }
+
 
     override fun onCleared() {
         super.onCleared()

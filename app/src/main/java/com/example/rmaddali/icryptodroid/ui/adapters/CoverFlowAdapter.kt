@@ -6,11 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.DiffUtil
 import com.example.rmaddali.icryptodroid.R
 import com.example.rmaddali.icryptodroid.model.CryptoInfoModel
 import com.example.rmaddali.icryptodroid.model.Data
 import com.example.rmaddali.icryptodroid.ui.activities.Dashboard
 import com.example.rmaddali.icryptodroid.ui.fragments.CoinListFragment
+import com.example.rmaddali.icryptodroid.utils.DiffUtilsImpl
 import com.example.rmaddali.icryptodroid.utils.UrlUtil
 import com.squareup.picasso.Picasso
 
@@ -40,7 +42,10 @@ class CoverFlowAdapter(context: Context, instance: CoinListFragment) : androidx.
       }
 
     fun updateData(cryptoInfo: List<Data>?) {
+
+       // DiffUtil.calculateDiff( DiffUtilsImpl(listItems, cryptoInfo!!)).dispatchUpdatesTo(this) Init Diff utils
         listItems = cryptoInfo!!
+
     }
 }
 

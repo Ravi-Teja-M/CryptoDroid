@@ -8,10 +8,12 @@ import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
 import com.example.rmaddali.icryptodroid.R
 import com.example.rmaddali.icryptodroid.model.Data
+import com.example.rmaddali.icryptodroid.networking.NetworkManager
 import com.example.rmaddali.icryptodroid.networking.ServiceHandlerViewModel
 import com.example.rmaddali.icryptodroid.ui.adapters.CoverFlowAdapter
 import com.example.rmaddali.icryptodroid.ui.adapters.OnListItemClicked
@@ -57,7 +59,7 @@ class CoinListFragment : Fragment() , OnListItemClicked {
         mViewMoreLabel = view.findViewById(R.id.view_more)
         mProgressBar = view.findViewById(R.id.progressBar)
         mViewMoreLabel.setOnClickListener{
-            onViewMoreClicked()
+
         }
         mCoverFlowAdapter = CoverFlowAdapter(context!! , this@CoinListFragment)
         var linearLayoutManager = androidx.recyclerview.widget.LinearLayoutManager(activity,androidx.recyclerview.widget.LinearLayoutManager.HORIZONTAL,false)
@@ -74,9 +76,7 @@ class CoinListFragment : Fragment() , OnListItemClicked {
         }
     }
 
-    fun onViewMoreClicked() :Unit{
 
-    }
 
     override fun onItemClicked(viewGroup: View, position: Int) {
 
@@ -87,14 +87,20 @@ class CoinListFragment : Fragment() , OnListItemClicked {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        mViewModel.getCryptoCoins(fun(){ //Success callback
-            updateListData(mViewModel.mCoinList?.value)
-            recyclerView.visibility= View.VISIBLE
-            mProgressBar.visibility = View.GONE
 
-        },  fun() { //Failure Callback
-            mProgressBar.visibility = View.GONE
-        })
+        if(NetworkManager.isNetworkAvailable(activity as FragmentActivity)) {
+            mViewModel.getCryptoCoins(fun() { //Success callback
+                updateListData(mViewModel.mCoinList?.value)
+                recyclerView.visibility = View.VISIBLE
+                mProgressBar.visibility = View.GONE
+
+            }, fun() { //Failure Callback
+                mProgressBar.visibility = View.GONE
+            })
+        } else{
+
+
+        }
 
     }
 }
